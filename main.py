@@ -1,24 +1,33 @@
+from __future__ import annotations
 from library.library import Library
 from library.models import Book
+import asyncio
+from services.openlibrary import fetch_book_by_isbn
 
 def print_menu():
     print("\n===== Kütüphane Uygulaması =====")
-    print("1. Kitap Ekle")
+    print("1. Kitap Ekle (ISBN ile otomatik)")
     print("2. Kitap Sil (ISBN)")
     print("3. Kitapları Listele")
     print("4. Kitap Ara (ISBN)")
     print("5. Çıkış")
 
 def add_book_flow(lib: Library):
-    title = input("Kitap adı: ").strip()
-    author = input("Yazar: ").strip()
     isbn = input("ISBN: ").strip()
-    if not title or not author or not isbn:
-        print("⚠️  Tüm alanlar zorunludur.")
+    if not isbn:
+        print("⚠️  ISBN zorunludur.")
         return
+
+    # Open Library çağrısı (Aşama 2)
+    data = asyncio.run(fetch_book_by_isbn(isbn))
+    if not data:
+        print("⚠️  Kitap bulunamadı veya bağlantı hatası.")
+        return
+
     try:
-        lib.add_book(Book(title=title, author=author, isbn=isbn))
-        print("✅ Kitap eklendi.")
+        book = Book(**data)
+        lib.add_book(book)
+        print(f"✅ Eklendi: {book}")
     except ValueError as e:
         print(f"⚠️  {e}")
 
@@ -40,7 +49,7 @@ def find_book_flow(lib: Library):
     print(b if b else "⚠️  Bulunamadı.")
 
 def main():
-    lib = Library("library.json")  # JSON kalıcılık dosyası
+    lib = Library("library.json")
     while True:
         print_menu()
         choice = input("Seçim: ").strip()
