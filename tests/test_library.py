@@ -15,10 +15,11 @@ def test_add_list_find_remove():
         assert len(lib.list_books()) == 1
         assert lib.find_book(b.isbn) is not None
 
-        # duplicate engeli
+        # aynı ISBN ikinci kez eklenemez
         with pytest.raises(ValueError):
             lib.add_book(b)
 
-        # silme
+        # silme akışı
         assert lib.remove_book(b.isbn) is True
         assert lib.remove_book(b.isbn) is False
+        assert lib.find_book(b.isbn) is None
