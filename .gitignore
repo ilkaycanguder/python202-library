@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.log
+
+# Sanal ortamlar
+.venv/
+venv/
+ENV/
+env/
+.venv/*
+venv/*
+ENV/*
+env/*
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# Test / Coverage
+.coverage
+.pytest_cache/
+htmlcov/
