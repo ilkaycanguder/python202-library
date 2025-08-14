@@ -68,6 +68,7 @@ Sunucu varsayılan olarak http://127.0.0.1:8000 adresinde çalışır.
 | --------------- | ------ | ------------------------------------------------------ |
 | `/books`        | GET    | Tüm kitapları listeler                                 |
 | `/books`        | POST   | ISBN ile yeni kitap ekler (Open Library API'den çeker) |
+| `/books/{isbn}` | PUT    | ISBN numarasına göre kitap bilgilerini günceller       |
 | `/books/{isbn}` | DELETE | ISBN numarasına göre kitap siler                       |
 
 #### API Dokümantasyonu
