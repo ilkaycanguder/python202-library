@@ -114,7 +114,7 @@ python202-library/
 Testleri çalıştırmak için:
 
 ```bash
-pytest
+python -m pytest -q
 ```
 
 Test kapsamı:

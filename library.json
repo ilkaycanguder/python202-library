@@ -3,5 +3,25 @@
     "title": "Crime and punishment",
     "author": "Фёдор Михайлович Достоевский",
     "isbn": "9780140449136"
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "isbn": "9780743273565"
+  },
+  {
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "isbn": "9780261102217"
+  },
+  {
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "isbn": "9780132350884"
+  },
+  {
+    "title": "The Pragmatic Programmer",
+    "author": "Andy Hunt, David Thomas, Dave Thomas, Andrew Hunt, David . Thomas",
+    "isbn": "9780135957059"
   }
 ]
